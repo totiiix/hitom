@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "poc": "POC IA",
+    "contact": "Contact",
+    "language": "Langue"
+  },
+  "hero": {
+    "title": "L'IA utile, l'expérience simple.",
+    "subtitle": "Sites et produits pilotés par l'IA, conçus pour être compris et utilisés.",
+    "cta_primary": "Démarrer un projet",
+    "cta_secondary": "Prendre un call"
+  },
+  "services": {
+    "title": "Des produits IA conçus pour être utilisés",
+    "subtitle": "De l'audit stratégique au déploiement, nous vous accompagnons à chaque étape pour créer des solutions IA utiles et mesurables.",
+    "audit": {
+      "title": "Audit IA",
+      "description": "Analyse de vos besoins et identification des opportunités d'automatisation par l'IA.",
+      "feature1": "Analyse de vos processus métier",
+      "feature2": "Identification des cas d'usage pertinents",
+      "feature3": "ROI estimé et feuille de route"
+    },
+    "prototype": {
+      "title": "Prototype rapide",
+      "description": "Développement d'un MVP fonctionnel en 2-4 semaines pour valider le concept.",
+      "feature1": "Design UX/UI optimisé",
+      "feature2": "Intégration IA (OpenAI, Anthropic, etc.)",
+      "feature3": "Tests utilisateurs"
+    },
+    "deployment": {
+      "title": "Déploiement & Support",
+      "description": "Mise en production sécurisée et accompagnement continu.",
+      "feature1": "Déploiement sur infrastructure scalable",
+      "feature2": "Formation de vos équipes",
+      "feature3": "Monitoring et optimisation continue"
+    },
+    "method": {
+      "title": "Notre méthode",
+      "step1_title": "Discovery",
+      "step1_desc": "Atelier d'1-2 jours pour comprendre vos enjeux, définir les objectifs et valider la faisabilité technique.",
+      "step2_title": "Sprint MVP",
+      "step2_desc": "Développement itératif d'un prototype fonctionnel avec retours réguliers. Objectif : valider l'usage réel.",
+      "step3_title": "Scale",
+      "step3_desc": "Passage en production avec monitoring, formation des équipes et optimisation continue basée sur les métriques."
+    }
+  },
+  "about": {
+    "title": "L'IA utile, l'expérience simple",
+    "subtitle": "Nous aidons les entreprises à créer des produits pilotés par l'IA qui sont vraiment utilisés.",
+    "story_title": "Notre histoire",
+    "story_p1": "Hitom est né d'un constat simple : trop de projets IA échouent non pas par manque de technologie, mais par manque de focus sur l'usage réel.",
+    "story_p2": "Notre mission est de créer des expériences IA qui s'intègrent naturellement dans le quotidien des utilisateurs, sans courbe d'apprentissage, sans frustration.",
+    "story_p3": "Nous combinons expertise technique et approche UX pour transformer des cas d'usage complexes en interfaces simples et efficaces.",
+    "values_title": "Nos valeurs",
+    "value1_title": "Utilité avant tout",
+    "value1_desc": "Nous créons des solutions IA qui résolvent de vrais problèmes, pas des gadgets technologiques.",
+    "value2_title": "Simplicité d'usage",
+    "value2_desc": "Une IA efficace est une IA qu'on comprend et qu'on utilise sans friction.",
+    "value3_title": "Impact mesurable",
+    "value3_desc": "Chaque projet est accompagné de métriques claires pour mesurer son ROI."
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Vous avez un projet ? Une question ? Nous sommes là pour vous aider.",
+    "form_title": "Envoyez-nous un message",
+    "form_instructions": "Le formulaire Tally sera intégré ici. Pour l'activer :",
+    "form_step1": "Créez un formulaire sur",
+    "form_step2": "Copiez le code d'embed",
+    "form_step3": "Remplacez ce placeholder par l'iframe Tally",
+    "form_placeholder": "📝 Formulaire Tally à intégrer",
+    "booking_title": "Prendre rendez-vous",
+    "booking_desc": "Réservez un créneau de 30 minutes pour discuter de votre projet.",
+    "booking_cta": "Réserver un call",
+    "info_title": "Coordonnées",
+    "info_email": "Email :",
+    "info_response": "Réponse :",
+    "info_response_time": "Sous 24-48h",
+    "social_title": "Réseaux sociaux",
+    "cta_title": "Prêt à démarrer ?",
+    "cta_subtitle": "Discutons de votre projet lors d'un premier échange gratuit de 30 minutes.",
+    "cta_contact": "Nous contacter",
+    "cta_book": "Réserver un call"
+  },
+  "footer": {
+    "company": "Entreprise",
+    "legal": "Légal",
+    "social": "Suivez-nous",
+    "tagline": "L'IA utile, l'expérience simple.",
+    "copyright": "Tous droits réservés.",
+    "legal_mentions": "Mentions légales",
+    "privacy": "Confidentialité",
+    "cookies": "Cookies"
+  },
+  "common": {
+    "read_more": "Lire la suite",
+    "contact_us": "Nous contacter",
+    "learn_more": "En savoir plus"
+  },
+  "poc": {
+    "title": "Preuves de Concept IA",
+    "subtitle": "Mini-applications démontrant mon expertise en Intelligence Artificielle",
+    "coming_soon": "Bientôt disponible",
+    "access_saas": "Accéder au SaaS",
+    "how_built": "Comment j'ai construit ceci",
+    "diagrams": "Schémas & Architecture",
+    "videos": "Vidéos explicatives",
+    "back_to_list": "← Retour aux POC",
+    "view_all": "Voir tous les POC",
+    "status_available": "Disponible",
+    "status_coming_soon": "En développement"
+  }
+}

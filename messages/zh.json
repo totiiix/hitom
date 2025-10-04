@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "about": "关于",
+    "contact": "联系",
+    "language": "语言",
+    "poc": "AI POC"
+  },
+  "hero": {
+    "title": "有用的AI，简单的体验。",
+    "subtitle": "由AI驱动的网站和产品，旨在被理解和使用。",
+    "cta_primary": "开始项目",
+    "cta_secondary": "预约通话"
+  },
+  "services": {
+    "title": "设计用于使用的AI产品",
+    "subtitle": "从战略审计到部署，我们在每一步都支持您创建有用且可衡量的AI解决方案。",
+    "audit": {
+      "title": "AI审计",
+      "description": "分析您的需求并确定AI自动化机会。",
+      "feature1": "分析您的业务流程",
+      "feature2": "确定相关用例",
+      "feature3": "估算ROI和路线图"
+    },
+    "prototype": {
+      "title": "快速原型",
+      "description": "在2-4周内开发功能性MVP以验证概念。",
+      "feature1": "优化的UX/UI设计",
+      "feature2": "AI集成（OpenAI，Anthropic等）",
+      "feature3": "用户测试"
+    },
+    "deployment": {
+      "title": "部署和支持",
+      "description": "安全的生产部署和持续支持。",
+      "feature1": "在可扩展基础设施上部署",
+      "feature2": "团队培训",
+      "feature3": "持续监控和优化"
+    },
+    "method": {
+      "title": "我们的方法",
+      "step1_title": "发现",
+      "step1_desc": "1-2天的研讨会，了解您的挑战，定义目标并验证技术可行性。",
+      "step2_title": "MVP冲刺",
+      "step2_desc": "通过定期反馈进行功能原型的迭代开发。目标：验证实际使用。",
+      "step3_title": "规模化",
+      "step3_desc": "基于指标的生产部署，包括监控、团队培训和持续优化。"
+    }
+  },
+  "about": {
+    "title": "有用的AI，简单的体验",
+    "subtitle": "我们帮助公司创建真正被使用的AI驱动产品。",
+    "story_title": "我们的故事",
+    "story_p1": "Hitom诞生于一个简单的观察：太多AI项目失败不是因为缺乏技术，而是因为缺乏对实际使用的关注。",
+    "story_p2": "我们的使命是创建自然融入用户日常生活的AI体验，没有学习曲线，没有挫败感。",
+    "story_p3": "我们结合技术专长和UX方法，将复杂的用例转化为简单有效的界面。",
+    "values_title": "我们的价值观",
+    "value1_title": "实用至上",
+    "value1_desc": "我们创建解决真实问题的AI解决方案，而不是技术小工具。",
+    "value2_title": "使用简单",
+    "value2_desc": "有效的AI是可以被理解和无摩擦使用的AI。",
+    "value3_title": "可衡量的影响",
+    "value3_desc": "每个项目都配有清晰的指标来衡量其ROI。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "有项目吗？有问题吗？我们在这里帮助您。",
+    "form_title": "给我们发送消息",
+    "form_instructions": "Tally表单将在此处集成。要激活它：",
+    "form_step1": "在以下位置创建表单",
+    "form_step2": "复制嵌入代码",
+    "form_step3": "用Tally iframe替换此占位符",
+    "form_placeholder": "📝 要集成的Tally表单",
+    "booking_title": "预约",
+    "booking_desc": "预约30分钟的时段来讨论您的项目。",
+    "booking_cta": "预约通话",
+    "info_title": "联系信息",
+    "info_email": "电子邮件：",
+    "info_response": "回复：",
+    "info_response_time": "24-48小时内",
+    "social_title": "社交网络",
+    "cta_title": "准备开始了吗？",
+    "cta_subtitle": "让我们在免费的30分钟初步交流中讨论您的项目。",
+    "cta_contact": "联系我们",
+    "cta_book": "预约通话"
+  },
+  "footer": {
+    "company": "公司",
+    "legal": "法律",
+    "social": "关注我们",
+    "tagline": "有用的AI，简单的体验。",
+    "copyright": "版权所有。",
+    "legal_mentions": "法律声明",
+    "privacy": "隐私",
+    "cookies": "Cookies"
+  },
+  "common": {
+    "read_more": "阅读更多",
+    "contact_us": "联系我们",
+    "learn_more": "了解更多"
+  },
+  "poc": {
+    "title": "AI 概念验证",
+    "subtitle": "展示我 AI 专业知识的迷你应用程序",
+    "coming_soon": "即将推出",
+    "access_saas": "访问 SaaS",
+    "how_built": "我是如何构建的",
+    "diagrams": "图表和架构",
+    "videos": "说明视频",
+    "back_to_list": "← 返回 POC",
+    "view_all": "查看所有 POC",
+    "status_available": "可用",
+    "status_coming_soon": "开发中"
+  }
+}

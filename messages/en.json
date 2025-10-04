@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "poc": "AI POC"
+  },
+  "hero": {
+    "title": "Useful AI, simple experience.",
+    "subtitle": "AI-powered sites and products designed to be understood and used.",
+    "cta_primary": "Start a project",
+    "cta_secondary": "Book a call"
+  },
+  "services": {
+    "title": "AI products designed to be used",
+    "subtitle": "From strategic audit to deployment, we support you at every step to create useful and measurable AI solutions.",
+    "audit": {
+      "title": "AI Audit",
+      "description": "Analysis of your needs and identification of AI automation opportunities.",
+      "feature1": "Analysis of your business processes",
+      "feature2": "Identification of relevant use cases",
+      "feature3": "Estimated ROI and roadmap"
+    },
+    "prototype": {
+      "title": "Rapid Prototype",
+      "description": "Development of a functional MVP in 2-4 weeks to validate the concept.",
+      "feature1": "Optimized UX/UI design",
+      "feature2": "AI integration (OpenAI, Anthropic, etc.)",
+      "feature3": "User testing"
+    },
+    "deployment": {
+      "title": "Deployment & Support",
+      "description": "Secure production deployment and continuous support.",
+      "feature1": "Deployment on scalable infrastructure",
+      "feature2": "Team training",
+      "feature3": "Continuous monitoring and optimization"
+    },
+    "method": {
+      "title": "Our method",
+      "step1_title": "Discovery",
+      "step1_desc": "1-2 day workshop to understand your challenges, define objectives and validate technical feasibility.",
+      "step2_title": "MVP Sprint",
+      "step2_desc": "Iterative development of a functional prototype with regular feedback. Goal: validate real usage.",
+      "step3_title": "Scale",
+      "step3_desc": "Production deployment with monitoring, team training and continuous optimization based on metrics."
+    }
+  },
+  "about": {
+    "title": "Useful AI, simple experience",
+    "subtitle": "We help companies create AI-powered products that are actually used.",
+    "story_title": "Our story",
+    "story_p1": "Hitom was born from a simple observation: too many AI projects fail not from lack of technology, but from lack of focus on real usage.",
+    "story_p2": "Our mission is to create AI experiences that integrate naturally into users' daily lives, without a learning curve, without frustration.",
+    "story_p3": "We combine technical expertise and UX approach to transform complex use cases into simple and effective interfaces.",
+    "values_title": "Our values",
+    "value1_title": "Utility first",
+    "value1_desc": "We create AI solutions that solve real problems, not technological gadgets.",
+    "value2_title": "Simplicity of use",
+    "value2_desc": "Effective AI is AI that is understood and used without friction.",
+    "value3_title": "Measurable impact",
+    "value3_desc": "Each project is accompanied by clear metrics to measure its ROI."
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Have a project? A question? We're here to help.",
+    "form_title": "Send us a message",
+    "form_instructions": "The Tally form will be integrated here. To activate it:",
+    "form_step1": "Create a form on",
+    "form_step2": "Copy the embed code",
+    "form_step3": "Replace this placeholder with the Tally iframe",
+    "form_placeholder": "📝 Tally form to integrate",
+    "booking_title": "Book an appointment",
+    "booking_desc": "Book a 30-minute slot to discuss your project.",
+    "booking_cta": "Book a call",
+    "info_title": "Contact information",
+    "info_email": "Email:",
+    "info_response": "Response:",
+    "info_response_time": "Within 24-48h",
+    "social_title": "Social networks",
+    "cta_title": "Ready to start?",
+    "cta_subtitle": "Let's discuss your project during a free 30-minute initial exchange.",
+    "cta_contact": "Contact us",
+    "cta_book": "Book a call"
+  },
+  "footer": {
+    "company": "Company",
+    "legal": "Legal",
+    "social": "Follow us",
+    "tagline": "Useful AI, simple experience.",
+    "copyright": "All rights reserved.",
+    "legal_mentions": "Legal mentions",
+    "privacy": "Privacy",
+    "cookies": "Cookies"
+  },
+  "common": {
+    "read_more": "Read more",
+    "contact_us": "Contact us",
+    "learn_more": "Learn more"
+  },
+  "poc": {
+    "title": "AI Proof of Concepts",
+    "subtitle": "Mini-applications demonstrating my AI expertise",
+    "coming_soon": "Coming Soon",
+    "access_saas": "Access SaaS",
+    "how_built": "How I built this",
+    "diagrams": "Diagrams & Architecture",
+    "videos": "Explanatory Videos",
+    "back_to_list": "← Back to POCs",
+    "view_all": "View all POCs",
+    "status_available": "Available",
+    "status_coming_soon": "In Development"
+  }
+}
