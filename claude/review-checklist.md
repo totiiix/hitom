@@ -1,0 +1,7 @@
+- [ ] Types OK, ESLint clean
+- [ ] A11y: roles, labels, contrast
+- [ ] i18n: strings not hardcoded
+- [ ] Tracking: GA4 events added
+- [ ] Perf: images optimized, no heavy libs
+- [ ] SEO: titles, meta, h1 unique
+- [ ] RGPD: Axeptio loaded, scripts behind consent if needed

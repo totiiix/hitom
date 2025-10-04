@@ -33,24 +33,24 @@ export default function PocIaPage() {
   const { isLoadingComplete } = useLoadingComplete()
 
   return (
-    <main className="@container pt-20">
+    <main className="pt-20">
       {/* Hero Section */}
-      <section className="@container py-12 @lg:py-16 @3xl:py-20 bg-white dark:bg-gray-900">
+      <section className="py-12 lg:py-16 bg-white dark:bg-gray-900">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isLoadingComplete ? "visible" : "hidden"}
-          className="container mx-auto px-4 @lg:px-6"
+          className="container mx-auto px-4 sm:px-6 lg:px-8"
         >
           <motion.h1
             variants={itemVariants}
-            className="text-3xl @lg:text-4xl @3xl:text-5xl font-bold mb-4 @lg:mb-6 dark:text-white text-center"
+            className="text-fluid-3xl font-bold mb-4 lg:mb-6 dark:text-white text-center"
           >
             {t('title')}
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-base @lg:text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto"
+            className="text-fluid-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto"
           >
             {t('subtitle')}
           </motion.p>
@@ -58,14 +58,14 @@ export default function PocIaPage() {
       </section>
 
       {/* POC Cards Grid */}
-      <section className="@container py-12 @lg:py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-12 lg:py-16 bg-gray-50 dark:bg-gray-800">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isLoadingComplete ? "visible" : "hidden"}
-          className="container mx-auto px-4 @lg:px-6"
+          className="container mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="@container grid grid-cols-1 @2xl:grid-cols-2 @5xl:grid-cols-3 gap-6 @lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {pocs.map((poc) => {
               const Icon = poc.icon
               const isComingSoon = poc.status === 'coming-soon'
@@ -89,24 +89,24 @@ export default function PocIaPage() {
                         </div>
                       )}
 
-                      <div className="p-6 @lg:p-8">
+                      <div className="p-6 lg:p-8">
                         {/* Icon */}
-                        <div className="w-16 h-16 @lg:w-20 @lg:h-20 mx-auto mb-4 @lg:mb-6 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl flex items-center justify-center">
-                          <Icon className="w-8 h-8 @lg:w-10 @lg:h-10 text-brand-primary" />
+                        <div className="w-16 h-16 lg:w-20 lg:h-20 mx-auto mb-4 lg:mb-6 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl flex items-center justify-center">
+                          <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-brand-primary" />
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-xl @lg:text-2xl font-bold mb-3 @lg:mb-4 text-center dark:text-white">
+                        <h3 className="text-fluid-2xl font-bold mb-3 lg:mb-4 text-center dark:text-white">
                           {poc.title[locale]}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-sm @lg:text-base text-gray-600 dark:text-gray-300 mb-4 text-center">
+                        <p className="text-fluid-base text-gray-600 dark:text-gray-300 mb-4 text-center">
                           {poc.description[locale]}
                         </p>
 
                         {/* Tagline */}
-                        <p className="text-sm italic text-gray-500 dark:text-gray-400 text-center">
+                        <p className="text-fluid-sm italic text-gray-500 dark:text-gray-400 text-center">
                           {poc.tagline[locale]}
                         </p>
                       </div>

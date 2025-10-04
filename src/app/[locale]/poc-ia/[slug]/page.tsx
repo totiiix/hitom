@@ -48,32 +48,31 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
   const hasVideos = poc.videos.length > 0
 
   return (
-    <main className="@container pt-20">
+    <main className="pt-20">
       {/* Breadcrumb */}
-      <section className="@container py-6 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 @lg:px-6">
+      <section className="py-6 lg:py-8 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href={`/${locale}/poc-ia`}
             className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary/80 transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm @lg:text-base">{t('back_to_list')}</span>
+            <span className="text-fluid-base">{t('back_to_list')}</span>
           </Link>
         </div>
       </section>
 
       {/* Hero Section */}
-      <section className="@container py-12 @lg:py-16 @3xl:py-20 bg-white dark:bg-gray-900">
+      <section className="py-12 lg:py-16 bg-white dark:bg-gray-900">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isLoadingComplete ? "visible" : "hidden"}
-          className="container mx-auto px-4 @lg:px-6"
+          className="container mx-auto px-4 sm:px-6 lg:px-8"
         >
           {/* Icon & Status */}
-          <motion.div variants={itemVariants} className="flex flex-col items-center mb-6 @lg:mb-8">
-            <div className="w-20 h-20 @lg:w-24 @lg:h-24 mb-4 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl flex items-center justify-center">
-              <Icon className="w-10 h-10 @lg:w-12 @lg:h-12 text-brand-primary" />
+          <motion.div variants={itemVariants} className="flex flex-col items-center mb-6 lg:mb-8">
+            <div className="w-20 h-20 lg:w-24 lg:h-24 mb-4 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl flex items-center justify-center">
+              <Icon className="w-10 h-10 lg:w-12 lg:h-12 text-brand-primary" />
             </div>
             {isComingSoon && (
               <div className="px-4 py-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm font-semibold rounded-full shadow-md">
@@ -85,21 +84,21 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
           {/* Title & Description */}
           <motion.h1
             variants={itemVariants}
-            className="text-3xl @lg:text-4xl @3xl:text-5xl font-bold mb-4 @lg:mb-6 dark:text-white text-center"
+            className="text-fluid-3xl font-bold mb-4 lg:mb-6 dark:text-white text-center"
           >
             {poc.title[locale]}
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-base @lg:text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-4"
+            className="text-fluid-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-4"
           >
             {poc.description[locale]}
           </motion.p>
 
           <motion.p
             variants={itemVariants}
-            className="text-sm @lg:text-base italic text-gray-500 dark:text-gray-500 text-center max-w-2xl mx-auto mb-8 @lg:mb-10"
+            className="text-fluid-base italic text-gray-500 dark:text-gray-500 text-center max-w-2xl mx-auto mb-8 lg:mb-10"
           >
             {poc.tagline[locale]}
           </motion.p>
@@ -137,27 +136,27 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
 
       {/* Articles Section */}
       {hasArticles && (
-        <section className="@container py-12 @lg:py-16 bg-gray-50 dark:bg-gray-800">
+        <section className="py-12 lg:py-16 bg-gray-50 dark:bg-gray-800">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isLoadingComplete ? "visible" : "hidden"}
-            className="container mx-auto px-4 @lg:px-6"
+            className="container mx-auto px-4 sm:px-6 lg:px-8"
           >
             <motion.h2
               variants={itemVariants}
-              className="text-2xl @lg:text-3xl font-bold mb-8 dark:text-white text-center"
+              className="text-fluid-2xl font-bold mb-8 lg:mb-10 dark:text-white text-center"
             >
               {t('how_built')}
             </motion.h2>
-            <div className="@container grid grid-cols-1 @2xl:grid-cols-2 gap-6 @lg:gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
               {poc.articles.map((article, index) => (
                 <motion.div key={index} variants={itemVariants}>
                   <Card hover className="h-full p-6">
-                    <h3 className="text-lg @lg:text-xl font-bold mb-3 dark:text-white">
+                    <h3 className="text-fluid-xl font-bold mb-3 dark:text-white">
                       {article.title[locale]}
                     </h3>
-                    <p className="text-sm @lg:text-base text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-fluid-base text-gray-600 dark:text-gray-300 mb-4">
                       {article.content[locale]}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -173,20 +172,20 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
 
       {/* Diagrams Section */}
       {hasDiagrams && (
-        <section className="@container py-12 @lg:py-16 bg-white dark:bg-gray-900">
+        <section className="py-12 lg:py-16 bg-white dark:bg-gray-900">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isLoadingComplete ? "visible" : "hidden"}
-            className="container mx-auto px-4 @lg:px-6"
+            className="container mx-auto px-4 sm:px-6 lg:px-8"
           >
             <motion.h2
               variants={itemVariants}
-              className="text-2xl @lg:text-3xl font-bold mb-8 dark:text-white text-center"
+              className="text-fluid-2xl font-bold mb-8 lg:mb-10 dark:text-white text-center"
             >
               {t('diagrams')}
             </motion.h2>
-            <div className="@container grid grid-cols-1 @2xl:grid-cols-2 gap-6 @lg:gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
               {poc.diagrams.map((diagram, index) => (
                 <motion.div key={index} variants={itemVariants}>
                   <Card className="h-full overflow-hidden">
@@ -196,7 +195,7 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
                       className="w-full h-auto object-cover"
                     />
                     <div className="p-4">
-                      <h3 className="text-base @lg:text-lg font-semibold dark:text-white">
+                      <h3 className="text-fluid-lg font-semibold dark:text-white">
                         {diagram.title[locale]}
                       </h3>
                     </div>
@@ -210,20 +209,20 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
 
       {/* Videos Section */}
       {hasVideos && (
-        <section className="@container py-12 @lg:py-16 bg-gray-50 dark:bg-gray-800">
+        <section className="py-12 lg:py-16 bg-gray-50 dark:bg-gray-800">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isLoadingComplete ? "visible" : "hidden"}
-            className="container mx-auto px-4 @lg:px-6"
+            className="container mx-auto px-4 sm:px-6 lg:px-8"
           >
             <motion.h2
               variants={itemVariants}
-              className="text-2xl @lg:text-3xl font-bold mb-8 dark:text-white text-center"
+              className="text-fluid-2xl font-bold mb-8 lg:mb-10 dark:text-white text-center"
             >
               {t('videos')}
             </motion.h2>
-            <div className="@container grid grid-cols-1 @2xl:grid-cols-2 gap-6 @lg:gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
               {poc.videos.map((video, index) => (
                 <motion.div key={index} variants={itemVariants}>
                   <Card className="h-full overflow-hidden">
@@ -256,7 +255,7 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
                       )}
                     </div>
                     <div className="p-4">
-                      <h3 className="text-base @lg:text-lg font-semibold dark:text-white">
+                      <h3 className="text-fluid-lg font-semibold dark:text-white">
                         {video.title[locale]}
                       </h3>
                     </div>
@@ -270,9 +269,9 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
 
       {/* Empty State when no content */}
       {!hasArticles && !hasDiagrams && !hasVideos && (
-        <section className="@container py-12 @lg:py-16 bg-gray-50 dark:bg-gray-800">
-          <div className="container mx-auto px-4 @lg:px-6 text-center">
-            <p className="text-base @lg:text-lg text-gray-500 dark:text-gray-400">
+        <section className="py-12 lg:py-16 bg-gray-50 dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-fluid-lg text-gray-500 dark:text-gray-400">
               {t('coming_soon')}
             </p>
           </div>

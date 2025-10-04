@@ -34,14 +34,14 @@ export function Hero() {
   const { isLoadingComplete } = useLoadingComplete()
 
   return (
-    <section className="@container relative">
+    <section className="relative">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isLoadingComplete ? "visible" : "hidden"}
-        className="container mx-auto px-4 @lg:px-6 pt-20 @lg:pt-24 pb-12 @lg:pb-16 text-center"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-32 pb-12 lg:pb-16 text-center"
       >
-        <motion.div variants={itemVariants} className="mx-auto mb-4 @lg:mb-6 w-20 @lg:w-24">
+        <motion.div variants={itemVariants} className="mx-auto mb-6 w-20 lg:w-24">
           <Image
             src="/brand/logo.png"
             alt="Logo Hitom"
@@ -53,24 +53,24 @@ export function Hero() {
         </motion.div>
         <motion.h1
           variants={itemVariants}
-          className="text-3xl @lg:text-4xl @2xl:text-5xl @4xl:text-6xl font-bold tracking-tight dark:text-white"
+          className="text-fluid-4xl font-bold tracking-tight dark:text-white"
         >
           {t('title')}
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="mt-3 @lg:mt-4 text-base @lg:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4"
+          className="mt-4 lg:mt-6 text-fluid-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4"
         >
           {t('subtitle')}
         </motion.p>
         <motion.div
           variants={itemVariants}
-          className="mt-6 @lg:mt-8 flex flex-col @lg:flex-row items-center justify-center gap-3"
+          className="mt-8 lg:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <Link href="/fr/contact" className="w-full @lg:w-auto px-6 py-3 rounded-3xl bg-brand-primary text-white hover:bg-brand-secondary transition-all duration-300 hover:shadow-lg">
+          <Link href="/fr/contact" className="w-full sm:w-auto px-6 py-3 rounded-3xl bg-brand-primary text-white hover:bg-brand-secondary transition-all duration-300 hover:shadow-lg">
             {t('cta_primary')}
           </Link>
-          <a href={process.env.NEXT_PUBLIC_CALENDLY_URL} className="w-full @lg:w-auto px-6 py-3 rounded-3xl bg-white dark:bg-gray-800 dark:text-white shadow-soft hover:shadow-lg transition-all duration-300">
+          <a href={process.env.NEXT_PUBLIC_CALENDLY_URL} className="w-full sm:w-auto px-6 py-3 rounded-3xl bg-white dark:bg-gray-800 dark:text-white shadow-soft hover:shadow-lg transition-all duration-300">
             {t('cta_secondary')}
           </a>
         </motion.div>

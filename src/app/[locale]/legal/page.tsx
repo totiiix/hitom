@@ -1,6 +1,6 @@
 export default function LegalPage() {
   return (
-    <div className="container mx-auto px-6 pt-32 pb-16 max-w-4xl">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-16 lg:pb-24 max-w-4xl">
       <h1 className="text-4xl font-bold mb-8">Mentions légales</h1>
 
       <section className="prose prose-lg max-w-none">

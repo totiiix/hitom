@@ -10,9 +10,8 @@ import { locales } from '@/lib/i18n'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navigation = [
-  { key: 'home', href: '/' },
   { key: 'services', href: '#services' },
-  { key: 'poc', href: '/poc-ia' },
+  { key: 'poc', href: '#poc' },
   { key: 'about', href: '#about' },
   { key: 'contact', href: '#contact' }
 ]
@@ -49,20 +48,27 @@ export function Header() {
   }
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Si c'est une ancre et qu'on est sur la homepage
+    // Si c'est une ancre
     if (href.startsWith('#')) {
-      e.preventDefault()
-      const element = document.getElementById(href.slice(1))
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Vérifier si on est sur la homepage
+      const isHomepage = pathname === `/${locale}` || pathname === `/${locale}/`
+
+      if (isHomepage) {
+        // On est sur la homepage, faire le scroll smooth
+        e.preventDefault()
+        const element = document.getElementById(href.slice(1))
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       }
+      // Sinon, laisser Next.js gérer la navigation normale vers /${locale}${href}
       setMobileMenuOpen(false)
     }
   }
 
   return (
-    <header className="@container fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
-      <nav className="container mx-auto px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-3">
@@ -78,11 +84,11 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden @2xl:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navigation.map(item => (
               <Link
                 key={item.href}
-                href={item.href.startsWith('#') ? item.href : `/${locale}${item.href}`}
+                href={item.href.startsWith('#') ? `/${locale}/${item.href}` : `/${locale}${item.href}`}
                 onClick={(e) => handleClick(e, item.href)}
                 className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200"
               >
@@ -93,28 +99,52 @@ export function Header() {
             {/* Theme Toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-all duration-200 hover:scale-110"
+              className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300"
               aria-label="Toggle theme"
             >
-              {mounted ? (
-                theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />
-              ) : (
-                <div className="w-5 h-5" />
+              {mounted && (
+                <>
+                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
+                    <Moon className="w-3 h-3 text-indigo-300 ml-auto" />
+                  </div>
+                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
+                    <Sun className="w-3 h-3 text-yellow-500" />
+                  </div>
+                  <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-7' : 'translate-x-0'}`}>
+                    {theme === 'dark' ? (
+                      <Moon className="w-3 h-3 text-indigo-500" />
+                    ) : (
+                      <Sun className="w-3 h-3 text-yellow-500" />
+                    )}
+                  </div>
+                </>
               )}
             </button>
           </div>
 
           {/* Mobile Actions */}
-          <div className="@2xl:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-4">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="text-gray-700 dark:text-gray-300"
+              className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300"
               aria-label="Toggle theme"
             >
-              {mounted ? (
-                theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />
-              ) : (
-                <div className="w-5 h-5" />
+              {mounted && (
+                <>
+                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
+                    <Moon className="w-3 h-3 text-indigo-300 ml-auto" />
+                  </div>
+                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
+                    <Sun className="w-3 h-3 text-yellow-500" />
+                  </div>
+                  <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-7' : 'translate-x-0'}`}>
+                    {theme === 'dark' ? (
+                      <Moon className="w-3 h-3 text-indigo-500" />
+                    ) : (
+                      <Sun className="w-3 h-3 text-yellow-500" />
+                    )}
+                  </div>
+                </>
               )}
             </button>
             <button
@@ -135,7 +165,7 @@ export function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="@2xl:hidden overflow-hidden"
+              className="md:hidden overflow-hidden"
             >
               <div className="mt-4 pb-4 border-t border-gray-100 dark:border-gray-800 pt-4 space-y-1">
                 {navigation.map((item, index) => (
@@ -146,7 +176,7 @@ export function Header() {
                     transition={{ delay: index * 0.05, duration: 0.2 }}
                   >
                     <Link
-                      href={item.href.startsWith('#') ? item.href : `/${locale}${item.href}`}
+                      href={item.href.startsWith('#') ? `/${locale}/${item.href}` : `/${locale}${item.href}`}
                       onClick={(e) => handleClick(e, item.href)}
                       className="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200"
                     >
