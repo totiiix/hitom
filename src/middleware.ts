@@ -15,11 +15,11 @@ export default function middleware(request: NextRequest) {
   // Security headers
   const csp = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://client.axept.io https://static.axept.io https://client.crisp.chat https://settings.crisp.chat https://assets.calendly.com https://va.vercel-scripts.com",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://client.axept.io https://static.axept.io https://client.crisp.chat https://settings.crisp.chat https://assets.calendly.com https://va.vercel-scripts.com",
     "style-src 'self' 'unsafe-inline' https://client.crisp.chat https://assets.calendly.com",
     "img-src 'self' data: blob: https: http:",
     "font-src 'self' data: https://client.crisp.chat https://assets.calendly.com",
-    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://client.axept.io https://static.axept.io https://api.axept.io https://client.crisp.chat wss://client.crisp.chat https://assets.calendly.com https://vitals.vercel-insights.com",
+    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://www.clarity.ms https://*.clarity.ms https://client.axept.io https://static.axept.io https://api.axept.io https://client.crisp.chat wss://client.crisp.chat https://assets.calendly.com https://vitals.vercel-insights.com",
     "frame-src 'self' https://calendly.com https://client.crisp.chat",
     "object-src 'none'",
     "base-uri 'self'",
