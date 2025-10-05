@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { useLoadingComplete } from '@/lib/loading-context'
 
 const containerVariants = {
@@ -31,6 +31,7 @@ const itemVariants = {
 
 export function Hero() {
   const t = useTranslations('hero')
+  const locale = useLocale()
   const { isLoadingComplete } = useLoadingComplete()
 
   return (
@@ -67,7 +68,7 @@ export function Hero() {
           variants={itemVariants}
           className="mt-8 lg:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <Link href="/fr/contact" className="w-full sm:w-auto px-6 py-3 rounded-3xl bg-brand-primary text-white hover:bg-brand-secondary transition-all duration-300 hover:shadow-lg">
+          <Link href={`/${locale}#contact`} className="w-full sm:w-auto px-6 py-3 rounded-3xl bg-brand-primary text-white hover:bg-brand-secondary transition-all duration-300 hover:shadow-lg">
             {t('cta_primary')}
           </Link>
           <a href={process.env.NEXT_PUBLIC_CALENDLY_URL} className="w-full sm:w-auto px-6 py-3 rounded-3xl bg-white dark:bg-gray-800 dark:text-white shadow-soft hover:shadow-lg transition-all duration-300">

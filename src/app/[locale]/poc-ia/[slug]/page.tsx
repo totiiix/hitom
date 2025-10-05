@@ -120,15 +120,15 @@ export default function PocDetailPage({ params }: { params: { slug: string } }) 
                 </div>
               </div>
             ) : (
-              <Button
-                size="large"
-                as="a"
+              <a
                 href={poc.saasUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t('access_saas')}
-              </Button>
+                <Button size="large">
+                  {t('access_saas')}
+                </Button>
+              </a>
             )}
           </motion.div>
         </motion.div>

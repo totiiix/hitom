@@ -19,6 +19,7 @@ const navigation = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const pathname = usePathname()
   const router = useRouter()
   const locale = useLocale()
@@ -28,6 +29,35 @@ export function Header() {
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Scroll Spy - Détecter la section active
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navigation.map(item => item.href.slice(1)) // Enlever le #
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          // Si la section est visible dans le viewport (avec un offset pour le header)
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    // Vérifier si on est sur la homepage
+    const isHomepage = pathname === `/${locale}` || pathname === `/${locale}/`
+    if (isHomepage) {
+      handleScroll() // Initial check
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      return () => window.removeEventListener('scroll', handleScroll)
+    } else {
+      setActiveSection('') // Reset si pas sur homepage
+    }
+  }, [pathname, locale])
 
   const localeNames: Record<string, string> = {
     fr: 'Français',
@@ -48,21 +78,24 @@ export function Header() {
   }
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Si c'est une ancre
+    // Fermer le menu mobile dans tous les cas
+    setMobileMenuOpen(false)
+
+    // Si c'est une ancre (commence par #)
     if (href.startsWith('#')) {
       // Vérifier si on est sur la homepage
       const isHomepage = pathname === `/${locale}` || pathname === `/${locale}/`
+      const sectionId = href.slice(1) // Enlever le #
 
       if (isHomepage) {
         // On est sur la homepage, faire le scroll smooth
         e.preventDefault()
-        const element = document.getElementById(href.slice(1))
+        const element = document.getElementById(sectionId)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       }
-      // Sinon, laisser Next.js gérer la navigation normale vers /${locale}${href}
-      setMobileMenuOpen(false)
+      // Sinon, laisser Next.js gérer la navigation normale
     }
   }
 
@@ -85,40 +118,54 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navigation.map(item => (
-              <Link
-                key={item.href}
-                href={item.href.startsWith('#') ? `/${locale}/${item.href}` : `/${locale}${item.href}`}
-                onClick={(e) => handleClick(e, item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200"
-              >
-                {t(item.key)}
-              </Link>
-            ))}
+            {navigation.map(item => {
+              const isActive = activeSection === item.href.slice(1)
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href.startsWith('#') ? `/${locale}/${item.href}` : `/${locale}${item.href}`}
+                  onClick={(e) => handleClick(e, item.href)}
+                  className={`relative text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200 ${
+                    isActive ? 'text-brand-primary dark:text-brand-secondary font-semibold' : ''
+                  }`}
+                >
+                  {t(item.key)}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-primary dark:bg-brand-secondary"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              )
+            })}
 
             {/* Theme Toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300"
+              className="relative p-2"
               aria-label="Toggle theme"
             >
-              {mounted && (
-                <>
-                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
-                    <Moon className="w-3 h-3 text-indigo-300 ml-auto" />
-                  </div>
-                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
-                    <Sun className="w-3 h-3 text-yellow-500" />
-                  </div>
-                  <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-7' : 'translate-x-0'}`}>
-                    {theme === 'dark' ? (
-                      <Moon className="w-3 h-3 text-indigo-500" />
-                    ) : (
+              <div className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300">
+                {mounted && (
+                  <>
+                    <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
+                      <Moon className="w-3 h-3 text-indigo-300 ml-auto" />
+                    </div>
+                    <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
                       <Sun className="w-3 h-3 text-yellow-500" />
-                    )}
-                  </div>
-                </>
-              )}
+                    </div>
+                    <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-7' : 'translate-x-0'}`}>
+                      {theme === 'dark' ? (
+                        <Moon className="w-3 h-3 text-indigo-500" />
+                      ) : (
+                        <Sun className="w-3 h-3 text-yellow-500" />
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
             </button>
           </div>
 
@@ -126,30 +173,32 @@ export function Header() {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300"
+              className="relative p-2"
               aria-label="Toggle theme"
             >
-              {mounted && (
-                <>
-                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
-                    <Moon className="w-3 h-3 text-indigo-300 ml-auto" />
-                  </div>
-                  <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
-                    <Sun className="w-3 h-3 text-yellow-500" />
-                  </div>
-                  <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-7' : 'translate-x-0'}`}>
-                    {theme === 'dark' ? (
-                      <Moon className="w-3 h-3 text-indigo-500" />
-                    ) : (
+              <div className="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300">
+                {mounted && (
+                  <>
+                    <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
+                      <Moon className="w-3 h-3 text-indigo-300 ml-auto" />
+                    </div>
+                    <div className={`absolute inset-0 flex items-center justify-between px-2 transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
                       <Sun className="w-3 h-3 text-yellow-500" />
-                    )}
-                  </div>
-                </>
-              )}
+                    </div>
+                    <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-7' : 'translate-x-0'}`}>
+                      {theme === 'dark' ? (
+                        <Moon className="w-3 h-3 text-indigo-500" />
+                      ) : (
+                        <Sun className="w-3 h-3 text-yellow-500" />
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-300"
+              className="text-gray-700 dark:text-gray-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -164,26 +213,25 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="md:hidden overflow-hidden"
+              transition={{ duration: 0.2 }}
+              className="md:hidden"
             >
               <div className="mt-4 pb-4 border-t border-gray-100 dark:border-gray-800 pt-4 space-y-1">
-                {navigation.map((item, index) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.2 }}
-                  >
+                {navigation.map((item) => {
+                  const isActive = activeSection === item.href.slice(1)
+                  return (
                     <Link
+                      key={item.href}
                       href={item.href.startsWith('#') ? `/${locale}/${item.href}` : `/${locale}${item.href}`}
                       onClick={(e) => handleClick(e, item.href)}
-                      className="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200"
+                      className={`block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200 ${
+                        isActive ? 'text-brand-primary dark:text-brand-secondary font-semibold' : ''
+                      }`}
                     >
                       {t(item.key)}
                     </Link>
-                  </motion.div>
-                ))}
+                  )
+                })}
               </div>
             </motion.div>
           )}

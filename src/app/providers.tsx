@@ -5,6 +5,7 @@ import Lenis from 'lenis'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Loading } from '@/components/Loading'
 import { LoadingProvider } from '@/lib/loading-context'
+import { ToastProvider } from '@/components/ui/Toast'
 
 export function Providers({ children, locale }: { children: React.ReactNode, locale: string }) {
   const [consentGiven, setConsentGiven] = useState(false)
@@ -125,11 +126,13 @@ export function Providers({ children, locale }: { children: React.ReactNode, loc
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <LoadingProvider>
-        {isMounted && isLoading && <Loading />}
-        <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
-          {children}
-        </div>
-        <Analytics />
+        <ToastProvider>
+          {isMounted && isLoading && <Loading />}
+          <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
+            {children}
+          </div>
+          <Analytics />
+        </ToastProvider>
       </LoadingProvider>
     </ThemeProvider>
   )
