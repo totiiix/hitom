@@ -68,11 +68,6 @@
     "title": "Contactez-nous",
     "subtitle": "Vous avez un projet ? Une question ? Nous sommes là pour vous aider.",
     "form_title": "Envoyez-nous un message",
-    "form_instructions": "Le formulaire Tally sera intégré ici. Pour l'activer :",
-    "form_step1": "Créez un formulaire sur",
-    "form_step2": "Copiez le code d'embed",
-    "form_step3": "Remplacez ce placeholder par l'iframe Tally",
-    "form_placeholder": "📝 Formulaire Tally à intégrer",
     "booking_title": "Prendre rendez-vous",
     "booking_desc": "Réservez un créneau de 30 minutes pour discuter de votre projet.",
     "booking_cta": "Réserver un call",
@@ -85,6 +80,41 @@
     "cta_subtitle": "Discutons de votre projet lors d'un premier échange gratuit de 30 minutes.",
     "cta_contact": "Nous contacter",
     "cta_book": "Réserver un call"
+  },
+  "contactForm": {
+    "firstName": "Prénom",
+    "firstNamePlaceholder": "Thomas",
+    "email": "Email",
+    "emailPlaceholder": "thomas@exemple.com",
+    "emailError": "Format d'email incorrect",
+    "company": "Nom de l'entreprise",
+    "companyPlaceholder": "Votre société",
+    "optional": "facultatif",
+    "needLabel": "Quel est ton besoin principal ?",
+    "needPlaceholder": "Choisissez une option",
+    "need": {
+      "poc": "Créer un POC IA rapide",
+      "ux": "Repenser mon UX / design system",
+      "ai": "Intégrer de l'IA dans mon produit actuel",
+      "automation": "Automatiser un process interne",
+      "other": "Autre"
+    },
+    "customNeedPlaceholder": "Décris ton besoin en quelques mots...",
+    "budgetLabel": "Budget envisagé",
+    "budgetPlaceholder": "Sélectionnez votre budget",
+    "budget": {
+      "small": "< 2 000 € (exploration / test)",
+      "medium": "2 000 € – 5 000 € (projet complet)",
+      "large": "> 5 000 € (partenariat long terme)"
+    },
+    "message": "Message libre",
+    "messagePlaceholder": "Décris ton projet ou ton idée en une phrase...",
+    "submit": "→ Envoyer mon brief",
+    "sending": "Envoi en cours...",
+    "responseTime": "Réponse sous 24 h, ou prends un créneau si tu préfères discuter en direct.",
+    "bookCall": "Ou réserver un call de 30 min",
+    "successTitle": "Merci, j'ai bien reçu ton message !",
+    "successMessage": "Je reviens vers toi sous 24 h avec une proposition adaptée."
   },
   "footer": {
     "company": "Entreprise",
@@ -286,10 +316,15 @@
     "error_code": "404",
     "title": "Page introuvable",
     "description": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
+    "go_back": "Retour",
     "back_home": "Retour à l'accueil",
     "contact_us": "Nous contacter",
     "popular_pages_title": "Pages populaires",
     "services": "Services",
-    "about": "À propos"
+    "services_desc": "Découvrez nos services IA",
+    "poc_ia": "POC IA",
+    "poc_ia_desc": "Explorez nos projets IA",
+    "about": "À propos",
+    "about_desc": "En savoir plus sur nous"
   }
 }

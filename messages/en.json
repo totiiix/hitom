@@ -68,11 +68,6 @@
     "title": "Contact us",
     "subtitle": "Have a project? A question? We're here to help.",
     "form_title": "Send us a message",
-    "form_instructions": "The Tally form will be integrated here. To activate it:",
-    "form_step1": "Create a form on",
-    "form_step2": "Copy the embed code",
-    "form_step3": "Replace this placeholder with the Tally iframe",
-    "form_placeholder": "📝 Tally form to integrate",
     "booking_title": "Book an appointment",
     "booking_desc": "Book a 30-minute slot to discuss your project.",
     "booking_cta": "Book a call",
@@ -85,6 +80,41 @@
     "cta_subtitle": "Let's discuss your project during a free 30-minute initial exchange.",
     "cta_contact": "Contact us",
     "cta_book": "Book a call"
+  },
+  "contactForm": {
+    "firstName": "First name",
+    "firstNamePlaceholder": "John",
+    "email": "Email",
+    "emailPlaceholder": "john@example.com",
+    "emailError": "Incorrect email format",
+    "company": "Company name",
+    "companyPlaceholder": "Your company",
+    "optional": "optional",
+    "needLabel": "What is your main need?",
+    "needPlaceholder": "Choose an option",
+    "need": {
+      "poc": "Create a quick AI POC",
+      "ux": "Rethink my UX / design system",
+      "ai": "Integrate AI into my current product",
+      "automation": "Automate an internal process",
+      "other": "Other"
+    },
+    "customNeedPlaceholder": "Describe your need in a few words...",
+    "budgetLabel": "Expected budget",
+    "budgetPlaceholder": "Select your budget",
+    "budget": {
+      "small": "< €2,000 (exploration / test)",
+      "medium": "€2,000 – €5,000 (complete project)",
+      "large": "> €5,000 (long-term partnership)"
+    },
+    "message": "Free message",
+    "messagePlaceholder": "Describe your project or idea in one sentence...",
+    "submit": "→ Send my brief",
+    "sending": "Sending...",
+    "responseTime": "Response within 24 hours, or book a slot if you prefer to discuss directly.",
+    "bookCall": "Or book a 30-minute call",
+    "successTitle": "Thank you, I received your message!",
+    "successMessage": "I'll get back to you within 24 hours with a tailored proposal."
   },
   "footer": {
     "company": "Company",
@@ -286,10 +316,15 @@
     "error_code": "404",
     "title": "Page not found",
     "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "go_back": "Go back",
     "back_home": "Back to home",
     "contact_us": "Contact us",
     "popular_pages_title": "Popular pages",
     "services": "Services",
-    "about": "About"
+    "services_desc": "Discover our AI services",
+    "poc_ia": "AI POC",
+    "poc_ia_desc": "Explore our AI projects",
+    "about": "About",
+    "about_desc": "Learn more about us"
   }
 }

@@ -68,11 +68,6 @@
     "title": "Contáctenos",
     "subtitle": "¿Tiene un proyecto? ¿Una pregunta? Estamos aquí para ayudarlo.",
     "form_title": "Envíenos un mensaje",
-    "form_instructions": "El formulario Tally se integrará aquí. Para activarlo:",
-    "form_step1": "Cree un formulario en",
-    "form_step2": "Copie el código de inserción",
-    "form_step3": "Reemplace este marcador de posición con el iframe de Tally",
-    "form_placeholder": "📝 Formulario Tally a integrar",
     "booking_title": "Reservar una cita",
     "booking_desc": "Reserve un espacio de 30 minutos para discutir su proyecto.",
     "booking_cta": "Reservar una llamada",
@@ -85,6 +80,41 @@
     "cta_subtitle": "Discutamos su proyecto durante un primer intercambio gratuito de 30 minutos.",
     "cta_contact": "Contáctenos",
     "cta_book": "Reservar una llamada"
+  },
+  "contactForm": {
+    "firstName": "Nombre",
+    "firstNamePlaceholder": "Juan",
+    "email": "Email",
+    "emailPlaceholder": "juan@ejemplo.com",
+    "emailError": "Formato de correo electrónico incorrecto",
+    "company": "Nombre de la empresa",
+    "companyPlaceholder": "Su empresa",
+    "optional": "opcional",
+    "needLabel": "¿Cuál es su necesidad principal?",
+    "needPlaceholder": "Elige una opción",
+    "need": {
+      "poc": "Crear un POC de IA rápido",
+      "ux": "Repensar mi UX / sistema de diseño",
+      "ai": "Integrar IA en mi producto actual",
+      "automation": "Automatizar un proceso interno",
+      "other": "Otro"
+    },
+    "customNeedPlaceholder": "Describa su necesidad en pocas palabras...",
+    "budgetLabel": "Presupuesto previsto",
+    "budgetPlaceholder": "Selecciona tu presupuesto",
+    "budget": {
+      "small": "< 2.000 € (exploración / prueba)",
+      "medium": "2.000 € – 5.000 € (proyecto completo)",
+      "large": "> 5.000 € (asociación a largo plazo)"
+    },
+    "message": "Mensaje libre",
+    "messagePlaceholder": "Describa su proyecto o idea en una frase...",
+    "submit": "→ Enviar mi brief",
+    "sending": "Enviando...",
+    "responseTime": "Respuesta en 24 horas, o reserve una cita si prefiere hablar directamente.",
+    "bookCall": "O reservar una llamada de 30 minutos",
+    "successTitle": "¡Gracias, recibí tu mensaje!",
+    "successMessage": "Me pondré en contacto con usted en 24 horas con una propuesta adaptada."
   },
   "footer": {
     "company": "Empresa",
@@ -286,10 +316,15 @@
     "error_code": "404",
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que busca no existe o ha sido movida.",
+    "go_back": "Volver",
     "back_home": "Volver al inicio",
     "contact_us": "Contáctenos",
     "popular_pages_title": "Páginas populares",
     "services": "Servicios",
-    "about": "Acerca de"
+    "services_desc": "Descubra nuestros servicios de IA",
+    "poc_ia": "POC IA",
+    "poc_ia_desc": "Explore nuestros proyectos de IA",
+    "about": "Acerca de",
+    "about_desc": "Más información sobre nosotros"
   }
 }
