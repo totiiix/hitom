@@ -62,8 +62,12 @@ export function Providers({
       return
     }
 
-    // Check if already loaded
-    if ((window as any).axeptio || document.querySelector('script[src*="axept.io"]')) {
+    // Check if already loaded (multiple checks for robustness)
+    const existingScript = document.querySelector('script[src*="axept.io"]')
+    const sdkLoaded = (window as any).axeptio !== undefined
+    const settingsSet = (window as any).axeptioSettings !== undefined
+
+    if (existingScript || sdkLoaded || settingsSet) {
       return
     }
 
@@ -103,15 +107,37 @@ export function Providers({
     setTimeout(checkConsent, 3000)
   }, [locale, envConfig.axeptioId])
 
-  // Google Tag Manager - Only after consent
+  // Google Consent Mode v2 - Initialize BEFORE GTM loads
   useEffect(() => {
-    if (!consentGiven) return
+    const id = envConfig.gtmId
+    if (!id) return
 
+    // Initialize dataLayer
+    ;(window as any).dataLayer = (window as any).dataLayer || []
+    function gtag(...args: any[]) {
+      ;(window as any).dataLayer.push(args)
+    }
+
+    // Set default consent to 'denied' (before user choice)
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    })
+  }, [envConfig.gtmId])
+
+  // Google Tag Manager - Load after consent mode initialized
+  useEffect(() => {
     const id = envConfig.gtmId
     if (!id) return
 
     // Check if already loaded
-    if ((window as any).dataLayer || document.querySelector('script[src*="googletagmanager"]')) {
+    if (document.querySelector('script[src*="googletagmanager"]')) {
       return
     }
 
@@ -122,7 +148,29 @@ export function Providers({
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer',id);
-  }, [consentGiven, envConfig.gtmId])
+  }, [envConfig.gtmId])
+
+  // Update consent when user accepts
+  useEffect(() => {
+    if (!consentGiven) return
+
+    const dataLayer = (window as any).dataLayer
+    if (!dataLayer) return
+
+    // Update consent to 'granted'
+    dataLayer.push({
+      event: 'consent_update',
+      consent: {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted',
+        security_storage: 'granted'
+      }
+    })
+  }, [consentGiven])
 
   // Microsoft Clarity - Only after consent
   useEffect(() => {
