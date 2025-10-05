@@ -1,3 +1,5 @@
 export { Button } from './Button'
 export { Card, CardHeader, CardTitle, CardContent } from './Card'
 export { useToast } from './Toast'
+export { Skeleton, SkeletonCard, SkeletonText } from './Skeleton'
+export { PageWithSkeleton } from '../PageWithSkeleton'

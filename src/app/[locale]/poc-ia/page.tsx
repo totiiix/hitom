@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useLoadingComplete } from '@/lib/loading-context'
 import { Card } from '@/components/ui/Card'
+import { SkeletonCard } from '@/components/ui'
+import { useState, useEffect } from 'react'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,6 +33,16 @@ export default function PocIaPage() {
   const t = useTranslations('poc')
   const locale = useLocale()
   const { isLoadingComplete } = useLoadingComplete()
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Simuler un petit chargement pour montrer les skeletons
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 800)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <main className="pt-20">
@@ -59,19 +71,26 @@ export default function PocIaPage() {
 
       {/* POC Cards Grid */}
       <section className="py-12 lg:py-16 bg-gray-50 dark:bg-gray-800">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isLoadingComplete ? "visible" : "hidden"}
-          className="container mx-auto px-4 sm:px-6 lg:px-8"
-        >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {pocs.map((poc) => {
+            {isLoading ? (
+              // Afficher les skeletons pendant le chargement
+              Array.from({ length: 6 }).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))
+            ) : (
+              // Afficher les POCs une fois chargés
+              pocs.map((poc) => {
               const Icon = poc.icon
               const isComingSoon = poc.status === 'coming-soon'
 
               return (
-                <motion.div key={poc.id} variants={itemVariants}>
+                <motion.div
+                  key={poc.id}
+                  variants={itemVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
                   <Link
                     href={`/${locale}/poc-ia/${poc.slug}`}
                     className="block h-full"
@@ -114,9 +133,10 @@ export default function PocIaPage() {
                   </Link>
                 </motion.div>
               )
-            })}
+            })
+            )}
           </div>
-        </motion.div>
+        </div>
       </section>
     </main>
   )

@@ -35,13 +35,10 @@ export function Providers({
     document.body.removeAttribute('data-titans-quick-view-extension-id')
   }, [])
 
-  // Loading screen
+  // Loading screen - Disabled
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000) // 2 seconds minimum loading time
-
-    return () => clearTimeout(timer)
+    // Pas de délai artificiel - chargement instantané
+    setIsLoading(false)
   }, [])
 
   // Smooth scrolling (Lenis) - Always active

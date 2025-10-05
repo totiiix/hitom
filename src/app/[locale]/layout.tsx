@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { Providers } from '@/app/providers'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { NavigationProgress } from '@/components/NavigationProgress'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { JsonLd } from '@/components/JsonLd'
 import { locales } from '@/lib/i18n'
 import { getOrganizationSchema, getWebsiteSchema } from '@/lib/json-ld'
@@ -43,9 +45,12 @@ export default async function LocaleLayout({
       <body className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors">
         <Providers locale={locale} envConfig={envConfig}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
+            <ErrorBoundary>
+              <NavigationProgress />
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </ErrorBoundary>
           </NextIntlClientProvider>
         </Providers>
       </body>

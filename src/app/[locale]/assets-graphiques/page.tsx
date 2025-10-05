@@ -106,6 +106,135 @@ export default function AssetsGraphiquesPage() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl">
             <div className="space-y-6">
               <div>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Test Notifications</p>
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    onClick={() => {
+                      const notification = document.createElement('div')
+                      notification.className = 'fixed top-4 right-4 z-[9999] max-w-md animate-slide-in-right'
+                      notification.innerHTML = `
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 shadow-lg">
+                          <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <div class="flex-1">
+                              <h4 class="font-semibold text-red-800 dark:text-red-300">Erreur</h4>
+                              <p class="text-sm text-red-700 dark:text-red-400 mt-1">Une erreur est survenue. Veuillez réessayer.</p>
+                            </div>
+                            <button onclick="
+                              const notif = this.parentElement.parentElement.parentElement;
+                              notif.classList.remove('animate-slide-in-right');
+                              notif.classList.add('animate-slide-out-right');
+                              setTimeout(() => notif.remove(), 300);
+                            " class="text-red-400 hover:text-red-600 dark:hover:text-red-300" aria-label="Fermer">
+                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      `
+                      document.body.appendChild(notification)
+                      setTimeout(() => {
+                        notification.classList.remove('animate-slide-in-right')
+                        notification.classList.add('animate-slide-out-right')
+                        setTimeout(() => notification.remove(), 300)
+                      }, 2000)
+                    }}
+                    className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg flex items-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    Erreur
+                  </button>
+                  <button
+                    onClick={() => {
+                      const notification = document.createElement('div')
+                      notification.className = 'fixed top-4 right-4 z-[9999] max-w-md animate-slide-in-right'
+                      notification.innerHTML = `
+                        <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 shadow-lg">
+                          <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="flex-1">
+                              <h4 class="font-semibold text-green-800 dark:text-green-300">Succès !</h4>
+                              <p class="text-sm text-green-700 dark:text-green-400 mt-1">Votre action a été effectuée avec succès.</p>
+                            </div>
+                            <button onclick="
+                              const notif = this.parentElement.parentElement.parentElement;
+                              notif.classList.remove('animate-slide-in-right');
+                              notif.classList.add('animate-slide-out-right');
+                              setTimeout(() => notif.remove(), 300);
+                            " class="text-green-400 hover:text-green-600 dark:hover:text-green-300" aria-label="Fermer">
+                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      `
+                      document.body.appendChild(notification)
+                      setTimeout(() => {
+                        notification.classList.remove('animate-slide-in-right')
+                        notification.classList.add('animate-slide-out-right')
+                        setTimeout(() => notification.remove(), 300)
+                      }, 2000)
+                    }}
+                    className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg flex items-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Succès
+                  </button>
+                  <button
+                    onClick={() => {
+                      const notification = document.createElement('div')
+                      notification.className = 'fixed top-4 right-4 z-[9999] max-w-md animate-slide-in-right'
+                      notification.innerHTML = `
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 shadow-lg">
+                          <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="flex-1">
+                              <h4 class="font-semibold text-blue-800 dark:text-blue-300">Information</h4>
+                              <p class="text-sm text-blue-700 dark:text-blue-400 mt-1">Voici une information importante à noter.</p>
+                            </div>
+                            <button onclick="
+                              const notif = this.parentElement.parentElement.parentElement;
+                              notif.classList.remove('animate-slide-in-right');
+                              notif.classList.add('animate-slide-out-right');
+                              setTimeout(() => notif.remove(), 300);
+                            " class="text-blue-400 hover:text-blue-600 dark:hover:text-blue-300" aria-label="Fermer">
+                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      `
+                      document.body.appendChild(notification)
+                      setTimeout(() => {
+                        notification.classList.remove('animate-slide-in-right')
+                        notification.classList.add('animate-slide-out-right')
+                        setTimeout(() => notification.remove(), 300)
+                      }, 2000)
+                    }}
+                    className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg flex items-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Information
+                  </button>
+                </div>
+              </div>
+
+              <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Tailles</p>
                 <div className="flex flex-wrap gap-4">
                   <Button size="small">Small Button</Button>
