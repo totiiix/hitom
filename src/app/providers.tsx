@@ -7,7 +7,22 @@ import { Loading } from '@/components/Loading'
 import { LoadingProvider } from '@/lib/loading-context'
 import { ToastProvider } from '@/components/ui/Toast'
 
-export function Providers({ children, locale }: { children: React.ReactNode, locale: string }) {
+interface EnvConfig {
+  gtmId?: string
+  axeptioId?: string
+  clarityId?: string
+  crispId?: string
+}
+
+export function Providers({
+  children,
+  locale,
+  envConfig
+}: {
+  children: React.ReactNode
+  locale: string
+  envConfig: EnvConfig
+}) {
   const [consentGiven, setConsentGiven] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
@@ -40,10 +55,15 @@ export function Providers({ children, locale }: { children: React.ReactNode, loc
 
   // Axeptio CMP - Load first
   useEffect(() => {
-    const id = process.env.NEXT_PUBLIC_AXEPTIO_CLIENT_ID
+    const id = envConfig.axeptioId
     if (!id) {
       // If no Axeptio, assume consent (dev mode)
       setConsentGiven(true)
+      return
+    }
+
+    // Check if already loaded
+    if ((window as any).axeptio || document.querySelector('script[src*="axept.io"]')) {
       return
     }
 
@@ -59,7 +79,14 @@ export function Providers({ children, locale }: { children: React.ReactNode, loc
       cookiesVersion: locale
     }
 
-    // Check for consent
+    // In dev mode, auto-accept to test GTM/Analytics
+    if (process.env.NODE_ENV === 'development') {
+      setTimeout(() => {
+        setConsentGiven(true)
+      }, 3000)
+    }
+
+    // Check for consent (production)
     const checkConsent = () => {
       const axeptio = (window as any).axeptio
       if (axeptio) {
@@ -74,32 +101,34 @@ export function Providers({ children, locale }: { children: React.ReactNode, loc
     // Retry check if Axeptio not loaded yet
     setTimeout(checkConsent, 1000)
     setTimeout(checkConsent, 3000)
-  }, [locale])
+  }, [locale, envConfig.axeptioId])
 
-  // GA4 - Only after consent
+  // Google Tag Manager - Only after consent
   useEffect(() => {
     if (!consentGiven) return
 
-    const id = process.env.NEXT_PUBLIC_GA4_ID
+    const id = envConfig.gtmId
     if (!id) return
 
-    const s = document.createElement('script')
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`
-    s.async = true
-    document.head.appendChild(s)
+    // Check if already loaded
+    if ((window as any).dataLayer || document.querySelector('script[src*="googletagmanager"]')) {
+      return
+    }
 
-    ;(window as any).dataLayer = (window as any).dataLayer || []
-    function gtag(...args: any[]){ (window as any).dataLayer.push(args) }
-    ;(window as any).gtag = gtag
-    gtag('js', new Date())
-    gtag('config', id, { anonymize_ip: true })
-  }, [consentGiven])
+    // GTM Script
+    ;(function(w: any,d: any,s: any,l: any,i: any){
+      w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',id);
+  }, [consentGiven, envConfig.gtmId])
 
   // Microsoft Clarity - Only after consent
   useEffect(() => {
     if (!consentGiven) return
 
-    const id = process.env.NEXT_PUBLIC_CLARITY_ID
+    const id = envConfig.clarityId
     if (!id) return
 
     ;(function(c: any,l: any,a: any,r: any,i: any){
@@ -108,11 +137,11 @@ export function Providers({ children, locale }: { children: React.ReactNode, loc
       t=l.createElement(r); t.async=1; t.src='https://www.clarity.ms/tag/'+i
       y=l.getElementsByTagName(r)[0]; y.parentNode?.insertBefore(t,y)
     })(window, document, 'clarity', 'script', id)
-  }, [consentGiven])
+  }, [consentGiven, envConfig.clarityId])
 
   // Crisp Chat - Always active (functional, not analytics)
   useEffect(() => {
-    const id = process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID
+    const id = envConfig.crispId
     if (!id) return
 
     (window as any).$crisp = []
@@ -121,7 +150,7 @@ export function Providers({ children, locale }: { children: React.ReactNode, loc
     s.src = 'https://client.crisp.chat/l.js'
     s.async = true
     document.head.appendChild(s)
-  }, [])
+  }, [envConfig.crispId])
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

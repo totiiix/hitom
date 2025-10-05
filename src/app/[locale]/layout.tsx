@@ -27,6 +27,13 @@ export default async function LocaleLayout({
     notFound()
   }
 
+  const envConfig = {
+    gtmId: process.env.NEXT_PUBLIC_GTM_ID,
+    axeptioId: process.env.NEXT_PUBLIC_AXEPTIO_CLIENT_ID,
+    clarityId: process.env.NEXT_PUBLIC_CLARITY_ID,
+    crispId: process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID
+  }
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
@@ -34,7 +41,7 @@ export default async function LocaleLayout({
         <JsonLd data={getWebsiteSchema()} />
       </head>
       <body className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors">
-        <Providers locale={locale}>
+        <Providers locale={locale} envConfig={envConfig}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Header />
             <main className="flex-1">{children}</main>

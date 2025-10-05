@@ -1,14 +1,15 @@
-// Standard GA4 events as per analytics_events.md
+// GTM dataLayer events as per analytics_events.md
 export const track = (name: string, params?: Record<string, any>) => {
   if (typeof window === 'undefined') return
-  const gtag = (window as any).gtag
-  if (gtag) {
+  const dataLayer = (window as any).dataLayer
+  if (dataLayer) {
     const enrichedParams = {
+      event: name,
       ...params,
       locale: params?.locale || document.documentElement.lang,
       path: params?.path || window.location.pathname
     }
-    gtag('event', name, enrichedParams)
+    dataLayer.push(enrichedParams)
   }
 }
 

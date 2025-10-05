@@ -19,7 +19,7 @@ export default function middleware(request: NextRequest) {
     "style-src 'self' 'unsafe-inline' https://client.crisp.chat https://assets.calendly.com",
     "img-src 'self' data: blob: https: http:",
     "font-src 'self' data: https://client.crisp.chat https://assets.calendly.com",
-    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://client.axept.io https://client.crisp.chat wss://client.crisp.chat https://assets.calendly.com https://vitals.vercel-insights.com",
+    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://client.axept.io https://static.axept.io https://api.axept.io https://client.crisp.chat wss://client.crisp.chat https://assets.calendly.com https://vitals.vercel-insights.com",
     "frame-src 'self' https://calendly.com https://client.crisp.chat",
     "object-src 'none'",
     "base-uri 'self'",
