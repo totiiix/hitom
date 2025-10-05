@@ -13,6 +13,8 @@ const navigation = [
   { key: 'services', href: '#services' },
   { key: 'poc', href: '#poc' },
   { key: 'about', href: '#about' },
+  { key: 'pricing', href: '#pricing' },
+  { key: 'faq', href: '#faq' },
   { key: 'contact', href: '#contact' }
 ]
 
