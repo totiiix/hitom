@@ -315,10 +315,50 @@ const t = useTranslations('hero')
 - **TODO** : Réimplémenter avec logique première visite uniquement
 
 ### Skeletons
-- **System** : HOC `PageWithSkeleton` disponible
-- **Guide** : `docs/SKELETON_GUIDE.md`
-- **Utilisation** : Envelopper le contenu des pages
-- **Durée recommandée** : 600-800ms
+
+#### Qu'est-ce qu'un Skeleton ?
+Les Skeleton Loaders sont des placeholders animés qui s'affichent pendant le chargement du contenu pour améliorer l'UX.
+
+#### Quand les utiliser
+- ✅ Pages avec contenu dynamique (API, données)
+- ✅ Listes de cards, grilles
+- ✅ Contenu textuel (articles)
+- ❌ Pages 100% statiques
+
+#### Méthode recommandée : HOC PageWithSkeleton
+```tsx
+import { PageWithSkeleton } from '@/components/PageWithSkeleton'
+
+export default function MyPage() {
+  return (
+    <PageWithSkeleton
+      skeletonType="cards"
+      skeletonCount={6}
+      loadingDuration={600}
+    >
+      <div className="grid grid-cols-3 gap-6">
+        {/* Votre contenu */}
+      </div>
+    </PageWithSkeleton>
+  )
+}
+```
+
+#### Types disponibles
+- `SkeletonCard` : Pour cards (POC, services)
+- `SkeletonText` : Pour contenu textuel
+- `Skeleton` : Skeleton de base personnalisable
+
+#### Options du HOC
+- `skeletonType`: `'cards' | 'text' | 'custom'`
+- `skeletonCount`: Nombre de skeletons
+- `loadingDuration`: 600-800ms recommandé
+- `customSkeleton`: Skeleton personnalisé
+
+#### Bonnes pratiques
+- **Durée** : 600-800ms optimal (< 300ms invisible, > 1000ms frustrant)
+- **Nombre** : Correspond au nombre réel d'éléments
+- **Animation** : Préférer `wave` pour effet moderne
 
 ### Analytics
 - **Google Tag Manager** : Configuré
