@@ -5,11 +5,35 @@ import type { NextRequest } from 'next/server'
 
 const intlMiddleware = createMiddleware({
   locales,
-  defaultLocale: 'fr',
-  localePrefix: 'always'
+  defaultLocale: 'en',
+  localePrefix: 'always',
+  localeDetection: true // Détection automatique de la langue du navigateur
 })
 
 export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // Redirection automatique depuis la racine vers la langue du navigateur
+  if (pathname === '/') {
+    // Détection de la langue du navigateur
+    const acceptLanguage = request.headers.get('accept-language')
+    let detectedLocale = 'en' // Locale par défaut (English)
+
+    if (acceptLanguage) {
+      // Parse le header accept-language (ex: "en-US,en;q=0.9,fr;q=0.8")
+      const languages = acceptLanguage.split(',').map(lang => {
+        const [code] = lang.split(';')[0].trim().split('-')
+        return code
+      })
+
+      // Trouve la première langue supportée
+      detectedLocale = languages.find(lang => locales.includes(lang as any)) || 'en'
+    }
+
+    // Redirection vers la locale détectée
+    return NextResponse.redirect(new URL(`/${detectedLocale}`, request.url))
+  }
+
   const response = intlMiddleware(request)
 
   // Security headers

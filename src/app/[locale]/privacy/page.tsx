@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           {t('controller_desc')}<br />
           <strong>{t('controller_company')}</strong><br />
           {t('controller_address')}<br />
-          {t('controller_email')} contact@hitom.fr
+          {t('controller_email')} hello@hitom.fr
         </p>
 
         <h2>{t('data_collected_title')}</h2>
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
           <li>{t('right_objection')}</li>
         </ul>
         <p>
-          {t('rights_exercise')} <a href="mailto:contact@hitom.fr" className="text-brand-primary hover:underline">contact@hitom.fr</a>
+          {t('rights_exercise')} <a href="mailto:hello@hitom.fr" className="text-brand-primary hover:underline">hello@hitom.fr</a>
         </p>
 
         <h2>{t('complaint_title')}</h2>

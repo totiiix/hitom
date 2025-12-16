@@ -173,7 +173,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Thomas (Hitom)**
 - Website: [hitom.fr](https://hitom.fr)
 - GitHub: [@totiiix](https://github.com/totiiix)
-- Email: contact@hitom.fr
+- Email: hello@hitom.fr
 
 ## 🙏 Acknowledgments
 

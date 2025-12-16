@@ -720,8 +720,8 @@ export default function Page() {
                 <div className="space-y-3 text-gray-600 dark:text-gray-400">
                   <p>
                     <strong>{tContact('info_email')}</strong>{' '}
-                    <a href="mailto:contact@hitom.fr" className="text-brand-primary hover:underline">
-                      contact@hitom.fr
+                    <a href="mailto:hello@hitom.fr" className="text-brand-primary hover:underline">
+                      hello@hitom.fr
                     </a>
                   </p>
                   <p>

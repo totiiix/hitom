@@ -70,7 +70,7 @@ const translations = {
 }
 
 export default function NotFound() {
-  const [locale, setLocale] = useState('fr')
+  const [locale, setLocale] = useState('en')
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 })
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 })
 
@@ -79,7 +79,7 @@ export default function NotFound() {
     const validLocales = ['fr', 'en', 'es', 'zh']
     const browserLang = navigator.language.split('-')[0]
     const detectedLocale = validLocales.includes(pathLocale) ? pathLocale :
-                          (validLocales.includes(browserLang) ? browserLang : 'fr')
+                          (validLocales.includes(browserLang) ? browserLang : 'en')
     setLocale(detectedLocale)
   }, [])
 

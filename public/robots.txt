@@ -1,0 +1,11 @@
+# robots.txt pour Hitom
+# https://hitom.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hitom.fr/sitemap.xml
+
+# Disallow admin or private areas if any
+# Disallow: /api/

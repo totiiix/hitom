@@ -1,10 +1,12 @@
 export function getOrganizationSchema() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hitom.fr'
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Hitom',
-    url: 'https://hitom.fr',
-    logo: 'https://hitom.fr/brand/logo.png',
+    url: baseUrl,
+    logo: `${baseUrl}/brand/logo.png`,
     description: 'Agence digitale spécialisée en audit, prototypage et déploiement de solutions innovantes',
     address: {
       '@type': 'PostalAddress',
@@ -12,7 +14,7 @@ export function getOrganizationSchema() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'contact@hitom.fr',
+      email: 'hello@hitom.fr',
       contactType: 'Customer Service',
       availableLanguage: ['French', 'English', 'Chinese', 'Spanish']
     },
@@ -24,14 +26,16 @@ export function getOrganizationSchema() {
 }
 
 export function getWebsiteSchema() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hitom.fr'
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Hitom',
-    url: 'https://hitom.fr',
+    url: baseUrl,
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://hitom.fr/search?q={search_term_string}',
+      target: `${baseUrl}/search?q={search_term_string}`,
       'query-input': 'required name=search_term_string'
     }
   }
@@ -67,6 +71,9 @@ export function getArticleSchema({
   image?: string
   url: string
 }) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hitom.fr'
+  const defaultLogo = `${baseUrl}/brand/logo.png`
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -83,10 +90,10 @@ export function getArticleSchema({
       name: 'Hitom',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://hitom.fr/brand/logo.png'
+        url: defaultLogo
       }
     },
-    image: image || 'https://hitom.fr/brand/logo.png',
+    image: image || defaultLogo,
     url
   }
 }

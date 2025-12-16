@@ -88,7 +88,7 @@ export default function CookiesPage() {
 
         <h2>{t('contact_title')}</h2>
         <p>
-          {t('contact_desc')} <a href="mailto:contact@hitom.fr" className="text-brand-primary hover:underline">contact@hitom.fr</a>
+          {t('contact_desc')} <a href="mailto:hello@hitom.fr" className="text-brand-primary hover:underline">hello@hitom.fr</a>
         </p>
       </section>
     </div>

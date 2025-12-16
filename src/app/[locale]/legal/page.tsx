@@ -13,16 +13,16 @@ export default function LegalPage() {
       <section className="prose prose-lg max-w-none">
         <h2>{t('editor_title')}</h2>
         <p>
-          <strong>{t('editor_company')}</strong> {t('editor_to_complete')}<br />
-          <strong>{t('editor_legal_form')}</strong> {t('editor_to_complete')}<br />
-          <strong>{t('editor_capital')}</strong> {t('editor_to_complete')}<br />
-          <strong>{t('editor_address')}</strong> {t('editor_to_complete')}<br />
-          <strong>{t('editor_siret')}</strong> {t('editor_to_complete')}<br />
-          <strong>{t('editor_email')}</strong> contact@hitom.fr
+          <strong>{t('editor_company')}</strong> {t('editor_company_value')}<br />
+          <strong>{t('editor_legal_form')}</strong> {t('editor_legal_form_value')}<br />
+          <strong>{t('editor_capital')}</strong> {t('editor_capital_value')}<br />
+          <strong>{t('editor_address')}</strong> {t('editor_address_value')}<br />
+          <strong>{t('editor_siret')}</strong> {t('editor_siret_value')}<br />
+          <strong>{t('editor_email')}</strong> hello@hitom.fr
         </p>
 
         <h2>{t('director_title')}</h2>
-        <p>{t('director_placeholder')}</p>
+        <p>{t('director_value')}</p>
 
         <h2>{t('hosting_title')}</h2>
         <p>
