@@ -326,5 +326,52 @@
     "poc_ia_desc": "Explore our AI projects",
     "about": "About",
     "about_desc": "Learn more about us"
+  },
+  "confirmationEmail": {
+    "preview": {
+      "poc": "Your AI POC request has been received - Hitom",
+      "ux": "Your UX audit request has been received - Hitom",
+      "ai": "Your AI solution request has been received - Hitom",
+      "automation": "Your automation request has been received - Hitom",
+      "other": "Your request has been received - Hitom"
+    },
+    "greeting": "Hello",
+    "brand": "Hitom",
+    "tagline": "Artificial Intelligence & Innovation",
+    "title": {
+      "poc": "Thank you for your interest in our POCs!",
+      "ux": "Thank you for your interest in our UX audits!",
+      "ai": "Thank you for your interest in our AI solutions!",
+      "automation": "Thank you for your interest in our automation solutions!",
+      "other": "Thank you for your message!"
+    },
+    "description": {
+      "poc": "We have received your request and our team is carefully reviewing it. POCs are an excellent way to quickly test an idea and evaluate technical feasibility before large-scale deployment.",
+      "ux": "We have received your request and we are eager to discover your project. A good UX audit can transform the user experience and significantly boost your conversions.",
+      "ai": "We have received your request. AI can deeply transform your business, and we are here to support you through this transition.",
+      "automation": "We have received your request. Automating your processes can save you precious time and significantly reduce errors.",
+      "other": "We have received your request and our team is carefully reviewing it."
+    },
+    "customNeed": "Your request:",
+    "nextSteps": "Next steps",
+    "steps": {
+      "step1": "Our team will contact you within 24-48h",
+      "step2": "We will discuss your project in detail",
+      "step3": "We will propose a tailored solution"
+    },
+    "cta": {
+      "poc": "Discover our POC examples",
+      "ux": "Learn more about our services",
+      "ai": "Discover our AI solutions",
+      "automation": "Learn more about automation",
+      "other": "Visit our website"
+    },
+    "footer": {
+      "signature": "See you soon,",
+      "team": "The Hitom team",
+      "website": "Website",
+      "contact": "Contact us",
+      "copyright": "All rights reserved."
+    }
   }
 }

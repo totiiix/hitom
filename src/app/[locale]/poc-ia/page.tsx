@@ -75,7 +75,7 @@ export default function PocIaPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {isLoading ? (
               // Afficher les skeletons pendant le chargement
-              Array.from({ length: 6 }).map((_, index) => (
+              Array.from({ length: 3 }).map((_, index) => (
                 <SkeletonCard key={index} />
               ))
             ) : (

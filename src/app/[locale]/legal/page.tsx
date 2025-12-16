@@ -1,47 +1,55 @@
+'use client'
+
+import { useTranslations, useLocale } from 'next-intl'
+
 export default function LegalPage() {
+  const t = useTranslations('legal')
+  const locale = useLocale()
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-16 lg:pb-24 max-w-4xl">
-      <h1 className="text-4xl font-bold mb-8">Mentions légales</h1>
+      <h1 className="text-4xl font-bold mb-8">{t('title')}</h1>
 
       <section className="prose prose-lg max-w-none">
-        <h2>Éditeur du site</h2>
+        <h2>{t('editor_title')}</h2>
         <p>
-          <strong>Raison sociale :</strong> [À COMPLÉTER]<br />
-          <strong>Forme juridique :</strong> [À COMPLÉTER]<br />
-          <strong>Capital social :</strong> [À COMPLÉTER]<br />
-          <strong>Siège social :</strong> [À COMPLÉTER]<br />
-          <strong>SIRET :</strong> [À COMPLÉTER]<br />
-          <strong>Email :</strong> contact@hitom.fr
+          <strong>{t('editor_company')}</strong> {t('editor_to_complete')}<br />
+          <strong>{t('editor_legal_form')}</strong> {t('editor_to_complete')}<br />
+          <strong>{t('editor_capital')}</strong> {t('editor_to_complete')}<br />
+          <strong>{t('editor_address')}</strong> {t('editor_to_complete')}<br />
+          <strong>{t('editor_siret')}</strong> {t('editor_to_complete')}<br />
+          <strong>{t('editor_email')}</strong> contact@hitom.fr
         </p>
 
-        <h2>Directeur de publication</h2>
-        <p>[NOM DU DIRECTEUR] - [FONCTION]</p>
+        <h2>{t('director_title')}</h2>
+        <p>{t('director_placeholder')}</p>
 
-        <h2>Hébergement</h2>
+        <h2>{t('hosting_title')}</h2>
         <p>
-          Ce site est hébergé par :<br />
-          <strong>Vercel Inc.</strong><br />
-          340 S Lemon Ave #4133<br />
-          Walnut, CA 91789<br />
-          États-Unis
+          {t('hosting_intro')}<br />
+          <strong>{t('hosting_company')}</strong><br />
+          {t('hosting_address1')}<br />
+          {t('hosting_address2')}<br />
+          {t('hosting_country')}
         </p>
 
-        <h2>Propriété intellectuelle</h2>
+        <h2>{t('ip_title')}</h2>
+        <p>{t('ip_desc')}</p>
+
+        <h2>{t('privacy_title')}</h2>
         <p>
-          L'ensemble du contenu de ce site (textes, images, vidéos, etc.) est protégé par le droit d'auteur.
-          Toute reproduction, même partielle, est interdite sans autorisation préalable.
+          {t('privacy_desc')}{' '}
+          <a href={`/${locale}/privacy`} className="text-brand-primary hover:underline">
+            {t('privacy_link')}
+          </a>.
         </p>
 
-        <h2>Données personnelles</h2>
+        <h2>{t('cookies_title')}</h2>
         <p>
-          Pour en savoir plus sur la collecte et le traitement de vos données personnelles,
-          consultez notre <a href="/privacy" className="text-brand-primary hover:underline">politique de confidentialité</a>.
-        </p>
-
-        <h2>Cookies</h2>
-        <p>
-          Ce site utilise des cookies. Pour plus d'informations, consultez notre{' '}
-          <a href="/cookies" className="text-brand-primary hover:underline">politique de cookies</a>.
+          {t('cookies_desc')}{' '}
+          <a href={`/${locale}/cookies`} className="text-brand-primary hover:underline">
+            {t('cookies_link')}
+          </a>.
         </p>
       </section>
     </div>

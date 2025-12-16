@@ -326,5 +326,52 @@
     "poc_ia_desc": "Explore nuestros proyectos de IA",
     "about": "Acerca de",
     "about_desc": "Más información sobre nosotros"
+  },
+  "confirmationEmail": {
+    "preview": {
+      "poc": "Su solicitud de POC IA ha sido recibida - Hitom",
+      "ux": "Su solicitud de auditoría UX ha sido recibida - Hitom",
+      "ai": "Su solicitud de solución IA ha sido recibida - Hitom",
+      "automation": "Su solicitud de automatización ha sido recibida - Hitom",
+      "other": "Su solicitud ha sido recibida - Hitom"
+    },
+    "greeting": "Hola",
+    "brand": "Hitom",
+    "tagline": "Inteligencia Artificial e Innovación",
+    "title": {
+      "poc": "¡Gracias por su interés en nuestros POC!",
+      "ux": "¡Gracias por su interés en nuestras auditorías UX!",
+      "ai": "¡Gracias por su interés en nuestras soluciones de IA!",
+      "automation": "¡Gracias por su interés en nuestras soluciones de automatización!",
+      "other": "¡Gracias por su mensaje!"
+    },
+    "description": {
+      "poc": "Hemos recibido su solicitud y nuestro equipo la está examinando atentamente. Los POC son una excelente manera de probar rápidamente una idea y evaluar la viabilidad técnica antes de un despliegue a gran escala.",
+      "ux": "Hemos recibido su solicitud y estamos ansiosos por descubrir su proyecto. Una buena auditoría UX puede transformar la experiencia del usuario y aumentar significativamente sus conversiones.",
+      "ai": "Hemos recibido su solicitud. La IA puede transformar profundamente su actividad, y estamos aquí para acompañarle en esta transición.",
+      "automation": "Hemos recibido su solicitud. La automatización de sus procesos puede ahorrarle un tiempo valioso y reducir significativamente los errores.",
+      "other": "Hemos recibido su solicitud y nuestro equipo la está examinando atentamente."
+    },
+    "customNeed": "Su solicitud:",
+    "nextSteps": "Próximos pasos",
+    "steps": {
+      "step1": "Nuestro equipo se pondrá en contacto con usted en 24-48h",
+      "step2": "Discutiremos su proyecto en detalle",
+      "step3": "Le propondremos una solución adaptada"
+    },
+    "cta": {
+      "poc": "Descubra nuestros ejemplos de POC",
+      "ux": "Más información sobre nuestros servicios",
+      "ai": "Descubra nuestras soluciones de IA",
+      "automation": "Más información sobre la automatización",
+      "other": "Visite nuestro sitio web"
+    },
+    "footer": {
+      "signature": "Hasta pronto,",
+      "team": "El equipo Hitom",
+      "website": "Sitio web",
+      "contact": "Contáctenos",
+      "copyright": "Todos los derechos reservados."
+    }
   }
 }

@@ -1,83 +1,85 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+
 export default function PrivacyPage() {
+  const t = useTranslations('privacy')
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-16 lg:pb-24 max-w-4xl">
-      <h1 className="text-4xl font-bold mb-8">Politique de confidentialité</h1>
+      <h1 className="text-4xl font-bold mb-8">{t('title')}</h1>
 
       <section className="prose prose-lg max-w-none">
         <p className="text-gray-600 mb-8">
-          <em>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</em>
+          <em>{t('last_updated')} {new Date().toLocaleDateString()}</em>
         </p>
 
-        <h2>1. Responsable du traitement</h2>
+        <h2>{t('controller_title')}</h2>
         <p>
-          Le responsable du traitement des données est :<br />
-          <strong>[NOM DE L'ENTREPRISE]</strong><br />
-          [ADRESSE]<br />
-          Email : contact@hitom.fr
+          {t('controller_desc')}<br />
+          <strong>{t('controller_company')}</strong><br />
+          {t('controller_address')}<br />
+          {t('controller_email')} contact@hitom.fr
         </p>
 
-        <h2>2. Données collectées</h2>
-        <p>Nous collectons les données suivantes :</p>
+        <h2>{t('data_collected_title')}</h2>
+        <p>{t('data_collected_intro')}</p>
         <ul>
-          <li><strong>Données de navigation :</strong> adresse IP, type de navigateur, pages visitées (via Google Analytics et Microsoft Clarity)</li>
-          <li><strong>Données de contact :</strong> nom, email, message (via formulaires de contact)</li>
-          <li><strong>Cookies :</strong> cookies de mesure d'audience et fonctionnels</li>
+          <li><strong>{t('data_navigation')}</strong> {t('data_navigation_desc')}</li>
+          <li><strong>{t('data_contact')}</strong> {t('data_contact_desc')}</li>
+          <li><strong>{t('data_cookies')}</strong> {t('data_cookies_desc')}</li>
         </ul>
 
-        <h2>3. Finalités du traitement</h2>
-        <p>Vos données sont utilisées pour :</p>
+        <h2>{t('purposes_title')}</h2>
+        <p>{t('purposes_intro')}</p>
         <ul>
-          <li>Répondre à vos demandes de contact</li>
-          <li>Améliorer l'expérience utilisateur</li>
-          <li>Analyser le trafic du site</li>
-          <li>Respecter nos obligations légales</li>
+          <li>{t('purpose_respond')}</li>
+          <li>{t('purpose_improve')}</li>
+          <li>{t('purpose_analyze')}</li>
+          <li>{t('purpose_legal')}</li>
         </ul>
 
-        <h2>4. Base légale</h2>
-        <p>
-          Le traitement de vos données repose sur :
-        </p>
+        <h2>{t('legal_basis_title')}</h2>
+        <p>{t('legal_basis_intro')}</p>
         <ul>
-          <li>Votre consentement (cookies analytiques)</li>
-          <li>L'exécution d'un contrat (formulaires)</li>
-          <li>Notre intérêt légitime (amélioration du service)</li>
+          <li>{t('legal_consent')}</li>
+          <li>{t('legal_contract')}</li>
+          <li>{t('legal_interest')}</li>
         </ul>
 
-        <h2>5. Destinataires des données</h2>
-        <p>Vos données peuvent être partagées avec :</p>
+        <h2>{t('recipients_title')}</h2>
+        <p>{t('recipients_intro')}</p>
         <ul>
-          <li>Google Analytics (mesure d'audience)</li>
-          <li>Microsoft Clarity (analyse comportementale)</li>
-          <li>Crisp (support client)</li>
-          <li>Axeptio (gestion du consentement)</li>
+          <li>{t('recipient_ga')}</li>
+          <li>{t('recipient_clarity')}</li>
+          <li>{t('recipient_crisp')}</li>
+          <li>{t('recipient_axeptio')}</li>
         </ul>
 
-        <h2>6. Durée de conservation</h2>
-        <p>
-          Vos données sont conservées pendant la durée nécessaire aux finalités poursuivies :
-        </p>
+        <h2>{t('retention_title')}</h2>
+        <p>{t('retention_intro')}</p>
         <ul>
-          <li>Données de contact : 3 ans après dernier contact</li>
-          <li>Données analytics : 26 mois maximum (Google Analytics)</li>
+          <li>{t('retention_contact')}</li>
+          <li>{t('retention_analytics')}</li>
         </ul>
 
-        <h2>7. Vos droits</h2>
-        <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+        <h2>{t('rights_title')}</h2>
+        <p>{t('rights_intro')}</p>
         <ul>
-          <li>Droit d'accès à vos données</li>
-          <li>Droit de rectification</li>
-          <li>Droit à l'effacement</li>
-          <li>Droit à la limitation du traitement</li>
-          <li>Droit à la portabilité</li>
-          <li>Droit d'opposition</li>
+          <li>{t('right_access')}</li>
+          <li>{t('right_rectification')}</li>
+          <li>{t('right_erasure')}</li>
+          <li>{t('right_restriction')}</li>
+          <li>{t('right_portability')}</li>
+          <li>{t('right_objection')}</li>
         </ul>
         <p>
-          Pour exercer vos droits, contactez-nous à : <a href="mailto:contact@hitom.fr" className="text-brand-primary hover:underline">contact@hitom.fr</a>
+          {t('rights_exercise')} <a href="mailto:contact@hitom.fr" className="text-brand-primary hover:underline">contact@hitom.fr</a>
         </p>
 
-        <h2>8. Réclamation</h2>
+        <h2>{t('complaint_title')}</h2>
         <p>
-          Vous avez le droit d'introduire une réclamation auprès de la CNIL :{' '}
+          {t('complaint_desc')}{' '}
           <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">
             www.cnil.fr
           </a>

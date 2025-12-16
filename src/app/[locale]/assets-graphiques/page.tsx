@@ -694,9 +694,9 @@ export default function AssetsGraphiquesPage() {
               </div>
             </div>
             <div className="py-4">
-              {activeTab === 'tab1' && <p className="dark:text-gray-300">Contenu de l'onglet 1</p>}
-              {activeTab === 'tab2' && <p className="dark:text-gray-300">Contenu de l'onglet 2</p>}
-              {activeTab === 'tab3' && <p className="dark:text-gray-300">Contenu de l'onglet 3</p>}
+              {activeTab === 'tab1' && <p className="dark:text-gray-300">Contenu de l&apos;onglet 1</p>}
+              {activeTab === 'tab2' && <p className="dark:text-gray-300">Contenu de l&apos;onglet 2</p>}
+              {activeTab === 'tab3' && <p className="dark:text-gray-300">Contenu de l&apos;onglet 3</p>}
             </div>
           </div>
         </section>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Check, Send, ChevronDown, AlertCircle } from 'lucide-react'
 import { createPortal } from 'react-dom'
 
@@ -11,6 +11,7 @@ interface ContactFormProps {
 
 export function ContactForm({ onSuccess }: ContactFormProps) {
   const t = useTranslations('contactForm')
+  const locale = useLocale()
   const [formData, setFormData] = useState({
     firstName: '',
     email: '',
@@ -49,36 +50,57 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
     setEmailError('')
     setIsSubmitting(true)
 
-    // Simuler l'envoi (à remplacer par votre logique d'envoi réelle)
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    try {
+      // Envoyer les données à l'API avec la locale
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          locale,
+        }),
+      })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setIsClosing(false)
+      const data = await response.json()
 
-    if (onSuccess) {
-      onSuccess()
-    }
+      if (!response.ok) {
+        throw new Error(data.error || 'Erreur lors de l\'envoi')
+      }
 
-    // Hide notification after 5 seconds with animation
-    setTimeout(() => {
-      setIsClosing(true)
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      setIsClosing(false)
+
+      if (onSuccess) {
+        onSuccess()
+      }
+
+      // Hide notification after 5 seconds with animation
       setTimeout(() => {
-        setIsSubmitted(false)
-        setIsClosing(false)
-      }, 300)
-    }, 5000)
+        setIsClosing(true)
+        setTimeout(() => {
+          setIsSubmitted(false)
+          setIsClosing(false)
+        }, 300)
+      }, 5000)
 
-    // Reset form
-    setFormData({
-      firstName: '',
-      email: '',
-      company: '',
-      need: '',
-      customNeed: '',
-      budget: '',
-      message: ''
-    })
+      // Reset form
+      setFormData({
+        firstName: '',
+        email: '',
+        company: '',
+        need: '',
+        customNeed: '',
+        budget: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('Erreur:', error)
+      setEmailError(error instanceof Error ? error.message : 'Erreur lors de l\'envoi du message')
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

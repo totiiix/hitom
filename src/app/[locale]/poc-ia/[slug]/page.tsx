@@ -1,5 +1,6 @@
 'use client'
 
+import { use } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { getPocBySlug } from '@/data/poc-ia'
 import { notFound } from 'next/navigation'
@@ -30,12 +31,13 @@ const itemVariants = {
   }
 }
 
-export default function PocDetailPage({ params }: { params: { slug: string } }) {
+export default function PocDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params)
   const t = useTranslations('poc')
   const locale = useLocale()
   const { isLoadingComplete } = useLoadingComplete()
 
-  const poc = getPocBySlug(params.slug)
+  const poc = getPocBySlug(slug)
 
   if (!poc) {
     notFound()

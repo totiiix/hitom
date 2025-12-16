@@ -1,6 +1,7 @@
 'use client'
 import { Hero } from '@/components/Hero'
 import { Card, CardHeader, CardTitle, CardContent, SkeletonCard, Accordion } from '@/components/ui'
+import { ContactForm } from '@/components/ContactForm'
 import Link from 'next/link'
 import { Sparkles, Rocket, Settings, Check } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -687,22 +688,7 @@ export default function Page() {
               }`}
             >
               <h3 className="text-2xl font-semibold mb-6 dark:text-white">{tContact('form_title')}</h3>
-              <div className="space-y-4">
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  {tContact('form_instructions')}
-                </p>
-                <ol className="text-sm text-gray-600 dark:text-gray-400 list-decimal list-inside space-y-2">
-                  <li>{tContact('form_step1')} <a href="https://tally.so" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">tally.so</a></li>
-                  <li>{tContact('form_step2')}</li>
-                  <li>{tContact('form_step3')}</li>
-                </ol>
-
-                <div className="mt-6 p-6 bg-gray-50 dark:bg-gray-700 rounded-2xl border-2 border-dashed border-gray-300 dark:border-gray-600">
-                  <p className="text-center text-gray-500 dark:text-gray-400">
-                    {tContact('form_placeholder')}
-                  </p>
-                </div>
-              </div>
+              <ContactForm onSuccess={() => track('contact_form_submit', { source: 'homepage' })} />
             </div>
 
             <div
