@@ -82,16 +82,33 @@ Date: ${new Date().toLocaleString('fr-FR')}
       html: confirmationEmailHtml,
     })
 
+    // Vérifier si les emails ont été envoyés avec succès
+    if (notificationEmail.error) {
+      console.error('❌ Erreur notification email:', notificationEmail.error)
+      return NextResponse.json(
+        { error: 'Erreur lors de l\'envoi de l\'email de notification' },
+        { status: 500 }
+      )
+    }
+
+    if (confirmationEmail.error) {
+      console.error('❌ Erreur confirmation email:', confirmationEmail.error)
+      return NextResponse.json(
+        { error: 'Erreur lors de l\'envoi de l\'email de confirmation' },
+        { status: 500 }
+      )
+    }
+
     console.log('✅ Emails envoyés avec succès:', {
-      notification: notificationEmail.id,
-      confirmation: confirmationEmail.id
+      notification: notificationEmail.data?.id,
+      confirmation: confirmationEmail.data?.id
     })
 
     return NextResponse.json(
       {
         success: true,
-        notificationId: notificationEmail.id,
-        confirmationId: confirmationEmail.id
+        notificationId: notificationEmail.data?.id,
+        confirmationId: confirmationEmail.data?.id
       },
       { status: 200 }
     )
